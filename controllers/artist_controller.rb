@@ -6,13 +6,8 @@ get '/artist/new' do
 end
 
 get '/artist' do
-
-  erb(:index)
-end
-
-get '/artist/:id' do
-  # @library=Artist.library
-  erb( :show )
+  @artists = Artist.all()
+  erb(:'artists/index_artist')
 end
 
 post '/artist' do
@@ -20,3 +15,14 @@ post '/artist' do
   @artist.save()
   erb( :'artists/create_artist' )
 end
+
+get '/artist/:id' do
+  @artist = Artist.find( params[:id] )
+  erb( :'artists/show_artist')
+end
+
+get '/artist/:id/edit' do
+  @artist = Artist.find( params[:id] )
+  erb( :'artists/edit_artist')
+end
+

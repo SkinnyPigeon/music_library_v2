@@ -29,9 +29,20 @@ class Artist
     return artists
   end
 
-  # def edit
-  #   sql = 
-  # end
+  def self.find( id )
+    sql = "SELECT * FROM artists WHERE id = #{id}"
+    artist = run_sql( sql )
+    result = Artist.new( artist.first )
+
+    return result
+  end
+
+  def self.update( options )
+    sql = "UPDATE artists SET 
+          name='#{ options[ 'name' ]}'
+          "
+    run_sql( sql )
+  end
 
 
 end

@@ -40,16 +40,16 @@ class Artist
   def self.update( options )
     sql = "UPDATE artists SET 
           name='#{ options[ 'name' ]}'
+          WHERE id='#{ options[ 'id' ]}' 
           "
+    run_sql( sql )
+  end
+
+  def self.delete( options )
+    sql = "DELETE FROM artists WHERE id=#{id}"
     run_sql( sql )
   end
 
 
 end
 
-# def self.library()
-#   sql = "SELECT artists.name, albums.name FROM albums INNER JOIN artists on albums.artist_id = artists.id "
-#   librarys_data = run_sql( sql )
-#   # librarys = librarys_data.map { |artist, album| Artist.new()}
-#   return library
-# end

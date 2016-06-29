@@ -22,7 +22,7 @@ class Album
     return artist
   end
 
-  def self.all(runner)
+  def self.all()
     sql = "SELECT * FROM albums"
     albums_data = run_sql( sql )
     albums = albums_data.map {|album_data| Album.new( album_data )}

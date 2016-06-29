@@ -28,4 +28,12 @@ class Artist
     artists = artists_data.map {|artist_data| Artist.new( artist_data )}
     return artists
   end
+
+  def self.library()
+    sql = "SELECT artists.name, albums.name FROM albums INNER JOIN artists on albums.artist_id = artists.id "
+    librarys_data = run_sql( sql )
+    # librarys = librarys_data.map { |artist, album| Artist.new()}
+    return library
+  end
+  # WHERE artist_id = #{@id}
 end

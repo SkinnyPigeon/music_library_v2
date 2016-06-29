@@ -18,5 +18,5 @@ end
 post '/artist' do
   @artist=Artist.new( params )
   @artist.save()
-  erb( :create_artist )
+  erb( :'artists/create_artist' )
 end

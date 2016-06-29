@@ -29,4 +29,36 @@ class Album
     albums = albums_data.map {|album_data| Album.new( album_data )}
     return albums
   end
+
+  def self.find( id )
+    sql = "SELECT * FROM albums WHERE id = #{id}"
+    artist = run_sql( sql )
+    result = Album.new( artist.first )
+
+    return result
+  end
+
+  def self.update( options )
+    sql = "UPDATE albums SET 
+          name='#{ options[ 'name' ]}'
+          WHERE id='#{ options[ 'id' ]}' 
+          "
+    run_sql( sql )
+  end
+
+  def self.delete( options )
+    sql = "DELETE FROM albums WHERE id=#{id}"
+    run_sql( sql )
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
